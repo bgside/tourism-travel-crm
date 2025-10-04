@@ -1,0 +1,424 @@
+# ===============================================
+# Tourism & Travel CRM - .gitignore
+# ===============================================
+# Comprehensive .gitignore for Laravel 11 Tourism CRM
+# Includes travel industry specific files and XAMPP configurations
+# ===============================================
+
+# ===============================================
+# Laravel Framework
+# ===============================================
+
+# Dependencies
+/vendor/
+/node_modules/
+composer.lock
+
+# Laravel specific
+/.env
+/.env.*
+!/.env.example
+/storage/*.key
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
+/storage/app/public/*
+!/storage/app/public/.gitkeep
+/storage/clockwork/*
+/bootstrap/cache/*
+
+# IDE generated files
+.phpstorm.meta.php
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+
+# Laravel Nova
+/nova
+
+# Laravel Telescope
+/public/vendor/telescope/
+
+# Laravel Horizon
+/public/vendor/horizon/
+
+# ===============================================
+# Development Environment
+# ===============================================
+
+# XAMPP specific
+xampp_start.bat
+xampp_stop.bat
+/htdocs/
+php_errors.log
+error_log
+
+# Local development
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Windows
+*.lnk
+*.tmp
+*~
+
+# Linux
+*~
+.nfs*
+
+# ===============================================
+# Database & Backups
+# ===============================================
+
+# Database files
+*.sql
+*.sqlite
+*.db
+*.mdb
+*.accdb
+
+# Database backups
+/backups/
+/database/backups/
+*.backup
+*.dump
+
+# Except schema files (keep for reference)
+!database_schema.sql
+!demo_data.sql
+
+# ===============================================
+# Tourism CRM Specific Files
+# ===============================================
+
+# Travel documents and uploads
+/storage/app/travel_documents/*
+/storage/app/customer_documents/*
+/storage/app/package_images/*
+/storage/app/destination_images/*
+/public/uploads/travel_documents/*
+/public/uploads/customer_photos/*
+/public/uploads/package_galleries/*
+
+# PDF reports and invoices
+/storage/app/invoices/*
+/storage/app/reports/*
+/storage/app/vouchers/*
+/storage/app/booking_confirmations/*
+/public/downloads/reports/*
+
+# Email templates (compiled)
+/storage/framework/views/emails/*
+
+# Customer data exports
+/exports/
+/storage/app/exports/*
+*.xlsx
+*.csv
+*.xls
+
+# Temporary booking files
+/temp/
+/storage/app/temp/*
+
+# Payment gateway logs
+/storage/logs/payment_*
+/storage/logs/stripe_*
+/storage/logs/paypal_*
+
+# ===============================================
+# Media & Assets
+# ===============================================
+
+# Compiled assets
+/public/css/*
+/public/js/*
+/public/mix-manifest.json
+/public/hot
+/public/storage
+/public/vendor/
+
+# Image thumbnails and processed media
+/storage/app/public/media/*
+/public/media/thumbnails/*
+/public/media/processed/*
+
+# Video files (too large for git)
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+
+# Large image files
+*.psd
+*.ai
+*.eps
+*.sketch
+
+# ===============================================
+# Node.js & NPM
+# ===============================================
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# NPM/Yarn lock files (keep package-lock.json if using npm)
+# yarn.lock
+# package-lock.json
+
+# Build outputs
+/dist/
+/build/
+/.nuxt/
+/.vite/
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ===============================================
+# Composer
+# ===============================================
+
+# Dependencies
+/vendor/
+
+# Composer files
+composer.phar
+auth.json
+
+# ===============================================
+# Security & Credentials
+# ===============================================
+
+# API keys and credentials
+.env.production
+.env.staging
+api_keys.txt
+credentials.json
+secrets.json
+
+# SSL certificates
+*.pem
+*.crt
+*.key
+*.p12
+*.pfx
+
+# Authentication tokens
+oauth-*.json
+token.json
+refresh_token.txt
+
+# Payment gateway configs (sensitive)
+payment_config.php
+gateway_settings.json
+
+# ===============================================
+# Logs & Monitoring
+# ===============================================
+
+# Application logs
+/storage/logs/*
+/logs/*
+*.log
+laravel.log
+php_errors.log
+
+# Debug dumps
+*.dump
+*.sql.gz
+debug.log
+
+# Profiling
+/storage/clockwork/*
+/storage/debugbar/*
+
+# Error tracking
+/storage/sentry/*
+
+# ===============================================
+# Testing
+# ===============================================
+
+# Test outputs
+/tests/coverage/
+/tests/reports/
+.phpunit.result.cache
+coverage.xml
+phpunit.xml
+
+# PHPUnit
+/.phpunit.cache
+/phpunit.xml
+
+# Pest
+.pest/
+pest.xml
+
+# ===============================================
+# Documentation
+# ===============================================
+
+# Generated documentation
+/docs/build/
+/docs/_site/
+api-documentation/
+
+# Except main docs
+!README.md
+!CHANGELOG.md
+!CONTRIBUTING.md
+!LICENSE
+!docs/README.md
+
+# ===============================================
+# Deployment & CI/CD
+# ===============================================
+
+# Deployment files
+deploy.php
+/deployment/
+.deployer/
+
+# CI/CD
+.github/workflows/secrets/
+.travis.yml
+.circleci/
+/build/
+
+# Docker (if used)
+docker-compose.override.yml
+.dockerignore
+
+# ===============================================
+# Tools & Utilities
+# ===============================================
+
+# Laravel Telescope
+telescope-*.json
+
+# Laravel Debugbar
+debugbar/
+
+# Barryvdh packages
+_ide_helper*
+.phpstorm.meta.php
+
+# PHP CS Fixer
+.php_cs.cache
+.php-cs-fixer.cache
+
+# PHPStan
+phpstan.neon
+
+# Psalm
+psalm.xml
+.psalm/
+
+# ===============================================
+# XAMPP Configuration
+# ===============================================
+
+# XAMPP control panel
+xampp-control.exe
+xampp-control.log
+
+# Apache configs (local modifications)
+httpd-vhosts.conf.local
+.htaccess.backup
+
+# PHP ini (local modifications)
+php.ini.local
+php_error.log
+
+# MySQL dumps (except demo data)
+mysql_dumps/*.sql
+!mysql_dumps/demo_data.sql
+
+# ===============================================
+# Miscellaneous
+# ===============================================
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# Editor backups
+*~
+*.swp
+*.swo
+*.bak
+
+# Archive files
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# Except demo archives
+!demo_data.zip
+!sample_images.zip
+
+# ===============================================
+# Keep These Files (Important!)
+# ===============================================
+# The following patterns ensure important files are NOT ignored:
+
+# Configuration templates
+!.env.example
+!config/app.php
+!config/database.php
+
+# Database structure
+!database/migrations/
+!database/seeders/
+!database/factories/
+
+# Public assets (development)
+!public/.htaccess
+!public/index.php
+!public/favicon.ico
+!public/robots.txt
+
+# Artisan commands
+!artisan
+
+# Routes
+!routes/
+
+# Resources
+!resources/
+
+# App code
+!app/
+
+# Tests
+!tests/
+
+# ===============================================
+# End of .gitignore
+# ===============================================
