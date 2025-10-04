@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism & Travel CRM - Live Demo</title>
+    <meta name="description" content="Enterprise Tourism & Travel CRM System with multilingual support, booking management, and travel-specific workflows - Live Demo">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #db2777 100%); }
+        .glass { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); }
+        .rtl { direction: rtl; }
+        .animate-fade-in { animation: fadeIn 0.8s ease-in-out; }
+        .animate-slide-up { animation: slideUp 1s ease-out; }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .demo-btn {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            transition: all 0.3s ease;
+        }
+        
+        .demo-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .travel-icon {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <nav class="gradient-bg shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                        <i class="fas fa-plane travel-icon text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-white text-xl font-bold">Tourism & Travel CRM</h1>
+                        <p class="text-blue-100 text-sm">Enterprise Travel Management</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleLanguage()" class="glass text-white px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all">
+                        <i class="fas fa-language mr-2"></i>
+                        <span id="lang-text">العربية</span>
+                    </button>
+                    <a href="https://github.com/bgside/tourism-travel-crm" target="_blank" class="glass text-white px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all">
+                        <i class="fab fa-github mr-2"></i>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div class="container mx-auto px-6 text-center relative z-10 animate-fade-in">
+            <div class="animate-float mb-8">
+                <i class="fas fa-globe-americas text-6xl text-yellow-300 mb-4"></i>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6" id="hero-title">
+                Tourism CRM Demo
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-4xl mx-auto leading-relaxed" id="hero-subtitle">
+                Enterprise-grade Tourism & Travel CRM System built with Laravel 11, featuring multilingual support, 
+                comprehensive booking management, and travel industry-specific workflows
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center mt-12">
+                <button onclick="openDemo('features')" class="demo-btn text-white px-10 py-4 rounded-xl font-semibold text-lg shadow-lg">
+                    <i class="fas fa-rocket mr-3"></i>
+                    Explore Features
+                </button>
+                <button onclick="openDemo('technical')" class="bg-white bg-opacity-20 backdrop-blur text-white px-10 py-4 rounded-xl font-semibold text-lg hover:bg-opacity-30 transition-all border border-white border-opacity-30">
+                    <i class="fas fa-code mr-3"></i>
+                    Technical Details
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6" id="features-title">
+                    Tourism Industry Features
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" id="features-subtitle">
+                    Specialized CRM designed for travel agencies, tour operators, and tourism businesses with Arabic/English support
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up">
+                <!-- Travel Package Management -->
+                <div class="feature-card bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl border border-blue-200 shadow-lg">
+                    <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-suitcase-rolling text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Travel Package Management</h3>
+                    <p class="text-gray-600 leading-relaxed">Create custom tour packages with flexible itineraries, dynamic pricing, and destination management</p>
+                </div>
+
+                <!-- Booking & Reservations -->
+                <div class="feature-card bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-xl border border-green-200 shadow-lg">
+                    <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-calendar-check text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Booking & Reservations</h3>
+                    <p class="text-gray-600 leading-relaxed">Complete booking workflow with participant management, status tracking, and automated confirmations</p>
+                </div>
+
+                <!-- Customer Journey Tracking -->
+                <div class="feature-card bg-gradient-to-br from-purple-50 to-violet-100 p-8 rounded-xl border border-purple-200 shadow-lg">
+                    <div class="w-16 h-16 bg-purple-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-route text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Customer Journey Tracking</h3>
+                    <p class="text-gray-600 leading-relaxed">Track customer interactions through 9 journey stages from inquiry to post-travel follow-up</p>
+                </div>
+
+                <!-- Payment Integration -->
+                <div class="feature-card bg-gradient-to-br from-yellow-50 to-orange-100 p-8 rounded-xl border border-orange-200 shadow-lg">
+                    <div class="w-16 h-16 bg-orange-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-credit-card text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Payment Integration</h3>
+                    <p class="text-gray-600 leading-relaxed">Multiple payment gateways, installment plans, automated refunds, and financial reporting</p>
+                </div>
+
+                <!-- Multilingual Support -->
+                <div class="feature-card bg-gradient-to-br from-teal-50 to-cyan-100 p-8 rounded-xl border border-teal-200 shadow-lg">
+                    <div class="w-16 h-16 bg-teal-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-language text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Multilingual Support</h3>
+                    <p class="text-gray-600 leading-relaxed">Complete Arabic/English bilingual interface with RTL support and localized content</p>
+                </div>
+
+                <!-- Analytics Dashboard -->
+                <div class="feature-card bg-gradient-to-br from-pink-50 to-rose-100 p-8 rounded-xl border border-pink-200 shadow-lg">
+                    <div class="w-16 h-16 bg-pink-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Business Analytics</h3>
+                    <p class="text-gray-600 leading-relaxed">Revenue analytics, customer insights, package performance, and comprehensive business reporting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Stack -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Modern Technology Stack</h2>
+                <p class="text-xl text-gray-600">Built with cutting-edge technologies for performance, scalability, and maintainability</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                    <i class="fab fa-laravel text-red-500 text-5xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Laravel 11</h3>
+                    <p class="text-gray-600">Latest PHP Framework</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                    <i class="fab fa-vuejs text-green-500 text-5xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Vue.js 3</h3>
+                    <p class="text-gray-600">Reactive Frontend</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                    <i class="fas fa-database text-blue-500 text-5xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">MySQL 8.0</h3>
+                    <p class="text-gray-600">Robust Database</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                    <i class="fas fa-server text-purple-500 text-5xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">XAMPP Ready</h3>
+                    <p class="text-gray-600">Development Stack</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Schema Highlight -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-12">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">Comprehensive Database Design</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        25+ tables covering all aspects of tourism business operations with optimized performance
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="text-3xl font-bold text-blue-600 mb-2">25+</div>
+                        <p class="text-gray-600 font-semibold">Database Tables</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="text-3xl font-bold text-green-600 mb-2">876</div>
+                        <p class="text-gray-600 font-semibold">Lines of SQL Schema</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="text-3xl font-bold text-purple-600 mb-2">2</div>
+                        <p class="text-gray-600 font-semibold">Languages Supported</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Modal -->
+    <div id="demoModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-xl max-w-2xl w-full p-8 animate-slide-up">
+            <div class="text-center">
+                <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-info text-white text-3xl"></i>
+                </div>
+                <h3 class="text-3xl font-bold text-gray-800 mb-6">Tourism CRM System</h3>
+                <div class="text-left bg-gray-50 p-6 rounded-lg mb-6">
+                    <p class="text-gray-700 mb-4" id="demo-message">
+                        This is a comprehensive Tourism & Travel CRM System built with Laravel 11. The system includes:
+                    </p>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>• <strong>25+ Database Tables</strong> - Complete tourism business model</li>
+                        <li>• <strong>Multilingual Support</strong> - Arabic/English throughout</li>
+                        <li>• <strong>XAMPP Optimized</strong> - Ready for development</li>
+                        <li>• <strong>Enterprise Security</strong> - RBAC, audit logs, encryption</li>
+                        <li>• <strong>Travel Industry Focus</strong> - Packages, bookings, customers</li>
+                        <li>• <strong>Payment Integration</strong> - Multiple gateways supported</li>
+                    </ul>
+                </div>
+                <div class="flex gap-4">
+                    <button onclick="window.open('https://github.com/bgside/tourism-travel-crm', '_blank')" class="demo-btn text-white px-8 py-3 rounded-lg flex-1">
+                        <i class="fab fa-github mr-2"></i>
+                        View Source Code
+                    </button>
+                    <button onclick="closeModal()" class="bg-gray-200 text-gray-700 px-8 py-3 rounded-lg flex-1 hover:bg-gray-300 transition-colors">
+                        <i class="fas fa-times mr-2"></i>
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-8">
+                <div class="w-16 h-16 bg-white bg-opacity-20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-plane travel-icon text-3xl"></i>
+                </div>
+                <h3 class="text-3xl font-bold mb-4">Tourism & Travel CRM</h3>
+                <p class="text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    Enterprise-grade Tourism CRM System built for travel agencies, tour operators, and tourism businesses. 
+                    Featuring comprehensive booking management, multilingual support, and travel industry workflows.
+                </p>
+                
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="https://github.com/bgside/tourism-travel-crm" target="_blank" class="glass p-4 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://bgside.github.io/portfolio-website" target="_blank" class="glass p-4 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all">
+                        <i class="fas fa-briefcase text-2xl"></i>
+                    </a>
+                    <a href="#" class="glass p-4 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-white border-opacity-30 pt-8">
+                <p class="text-blue-100">
+                    © 2024 Ali Emad SALEH. Professional Tourism & Travel CRM System.
+                </p>
+                <p class="text-blue-200 text-sm mt-2">
+                    Built with Laravel 11 • Vue.js 3 • MySQL 8.0 • Optimized for XAMPP
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let isArabic = false;
+
+        const translations = {
+            en: {
+                'hero-title': 'Tourism CRM Demo',
+                'hero-subtitle': 'Enterprise-grade Tourism & Travel CRM System built with Laravel 11, featuring multilingual support, comprehensive booking management, and travel industry-specific workflows',
+                'features-title': 'Tourism Industry Features',
+                'features-subtitle': 'Specialized CRM designed for travel agencies, tour operators, and tourism businesses with Arabic/English support',
+                'demo-message': 'This is a comprehensive Tourism & Travel CRM System built with Laravel 11. The system includes:',
+                'lang-text': 'العربية'
+            },
+            ar: {
+                'hero-title': 'عرض توضيحي لنظام إدارة السياحة والسفر',
+                'hero-subtitle': 'نظام إدارة علاقات العملاء للسياحة والسفر من مستوى المؤسسات مبني على Laravel 11، يتميز بالدعم متعدد اللغات وإدارة الحجوزات الشاملة وسير العمل الخاص بصناعة السفر',
+                'features-title': 'ميزات صناعة السياحة',
+                'features-subtitle': 'نظام إدارة علاقات العملاء المتخصص المصمم لوكالات السفر ومشغلي الجولات وشركات السياحة مع دعم العربية/الإنجليزية',
+                'demo-message': 'هذا نظام شامل لإدارة علاقات العملاء للسياحة والسفر مبني على Laravel 11. يتضمن النظام:',
+                'lang-text': 'English'
+            }
+        };
+
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const lang = isArabic ? 'ar' : 'en';
+            document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+            
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        function openDemo(type) {
+            const modal = document.getElementById('demoModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('demoModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('demoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('animate-slide-up');
+            });
+        });
+    </script>
+</body>
+</html>
